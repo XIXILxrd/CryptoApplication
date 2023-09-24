@@ -30,14 +30,16 @@ class CoinDetailActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         viewModel.getDetailInfo(fromSymbol).observe(this) {
-            binding.tvPrice.text = it.price
-            binding.tvMinPrice.text = it.lowDay
-            binding.tvMaxPrice.text = it.highDay
-            binding.tvLastMarket.text = it.lastMarket
-            binding.tvLastUpdate.text = it.lastUpdate
-            binding.tvFromSymbol.text = it.fromSymbol
-            binding.tvToSymbol.text = it.toSymbol
-            Picasso.get().load(it.imageUrl).into(binding.ivLogoCoin)
+            with(binding) {
+                tvPrice.text = it.price
+                tvMinPrice.text = it.lowDay
+                tvMaxPrice.text = it.highDay
+                tvLastMarket.text = it.lastMarket
+                tvLastUpdate.text = it.lastUpdate
+                tvFromSymbol.text = it.fromSymbol
+                tvToSymbol.text = it.toSymbol
+                Picasso.get().load(it.imageUrl).into(ivLogoCoin)
+            }
         }
     }
 
