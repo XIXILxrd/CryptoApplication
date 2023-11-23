@@ -10,7 +10,9 @@ import dagger.Component
 @ApplicationScope
 @Component(
     modules = [
-        DataModule::class, ViewModelModule::class
+        DataModule::class,
+        ViewModelModule::class,
+        WorkerModule::class
     ]
 )
 interface ApplicationComponent {
